@@ -12,7 +12,7 @@ class succour extends StatelessWidget {
       // Set Raleway as the default app font
 
 
-      home: MyHomePage(),
+      home: mainscreen(),
     );
   }
 }
@@ -66,18 +66,17 @@ class Login extends StatelessWidget {
                 }
               },
             ),
-            TextFormField(
-              decoration: InputDecoration(hintText: 'Disability'),
-              validator: (value){
-                if(value.isEmpty){
-                  return 'You need to tell about your disability';
-                }
-              },
-            ),
+
+
+
             RaisedButton(
               onPressed: (){
                 if(formKey.currentState.validate()){
                   print('Form Valid');
+                  Navigator.push(context, MaterialPageRoute(
+                      builder: (context) => home(),
+                ));
+
                 }
 
               },
@@ -93,7 +92,100 @@ class Login extends StatelessWidget {
 }
 
 
-class MyHomePage extends StatelessWidget {
+class home extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+
+      appBar: AppBar(
+        title: Text('Select your Disability',
+            style: TextStyle(
+              fontSize: 20.0,
+              letterSpacing: 2.0,
+              fontWeight: FontWeight.bold,
+            )
+
+        ),
+        centerTitle: true ,
+        backgroundColor: Colors.deepOrangeAccent,
+      ),
+
+      body:
+          Center(
+            child:
+      Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Expanded(
+              child:
+              FlatButton(
+              onPressed: () {},
+              color: Colors.cyanAccent,
+              child: Text('Blindness ',
+              style: TextStyle(
+                fontSize: 80.0,
+                letterSpacing: 2.0,
+                fontWeight: FontWeight.bold,
+              ),
+              ),
+              ),
+          ),
+
+          Expanded(
+              child:
+              FlatButton(onPressed: () {},
+                  color: Colors.deepOrangeAccent,
+                  child: Text(' Deafness ',
+              style: TextStyle(
+                fontSize: 80.0,
+              letterSpacing: 2.0,
+              fontWeight: FontWeight.bold,
+              ),
+                  ),
+              ),
+          ),
+
+            Expanded(
+            child:
+            FlatButton(onPressed: () {},
+              color: Colors.red,
+              child: Text(' Amputee ',
+            style: TextStyle(
+            fontSize: 80.0,
+            letterSpacing: 2.0,
+            fontWeight: FontWeight.bold,
+            ),
+              ),
+            ),
+            ),
+
+            Expanded(
+            child:
+            FlatButton(onPressed: () {},
+              color: Colors.amberAccent,
+              child: Text('  Dyslexia  ',
+            style: TextStyle(
+            fontSize: 80.0,
+            letterSpacing: 2.0,
+            fontWeight: FontWeight.bold,
+            ),
+            ),
+            ),
+          ),
+        ],
+      ),
+          ),
+
+
+
+    );
+  }
+}
+
+
+
+
+class mainscreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
